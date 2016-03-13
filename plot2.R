@@ -30,10 +30,13 @@ globalActivepower <-
 
 # covert data to required date and time format
 
-Date.Time <- strptime(paste(subsetplot2.data, subsetplot2.data$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
+Date.Time <-
+  strptime(paste(subsetplot2.data, subsetplot2.data$Time, sep = " "), "%d/%m/%Y %H:%M:%S")
 
 
-# ploting trendline according to day after setting graphical devise 
+# ploting trendline according to day after setting graphical devise
 png("plot2.png", width = 480, height = 480)
-plot(Date.Time, globalActivepower, type="1", xlab="", ylab="Global Active Power (kilowatts)")
+plot(
+  Date.Time, globalActivepower, type = "1", xlab = "", ylab = "Global Active Power (kilowatts)"
+)
 dev.off()

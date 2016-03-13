@@ -29,7 +29,8 @@ globalActivepower <-
   as.numeric(subsetplot3.data$Global_active_power)
 
 # covert data to required date and time format
-Date.Time <- strptime(paste(subsetplot3.data, subsetplot3.data$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
+Date.Time <-
+  strptime(paste(subsetplot3.data, subsetplot3.data$Time, sep = " "), "%d/%m/%Y %H:%M:%S")
 
 
 # converting submeter data in numeric
@@ -39,10 +40,16 @@ subMetering3 <- as.numeric(subsetplot3.data$Sub_metering_3)
 
 
 
-# ploting trendline according to day after setting graphical devise 
+# ploting trendline according to day after setting graphical devise
 png("plot3.png", width = 480, height = 480)
-plot(Date.Time, subMetering1, type="l", ylab="Energy Submetering", xlab="")
-lines(Date.Time, subMetering2, type="l", col="red")
-lines(Date.Time, subMetering3, type="l", col="blue")
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, lwd=2.5, col=c("black", "red", "blue"))
+plot(
+  Date.Time, subMetering1, type = "l", ylab = "Energy Submetering", xlab =
+    ""
+)
+lines(Date.Time, subMetering2, type = "l", col = "red")
+lines(Date.Time, subMetering3, type = "l", col = "blue")
+legend(
+  "topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty =
+    1, lwd = 2.5, col = c("black", "red", "blue")
+)
 dev.off()
